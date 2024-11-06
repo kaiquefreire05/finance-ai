@@ -1,6 +1,5 @@
 import { redirect } from "next/navigation";
 import { UserButton } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
 import { auth } from "@clerk/nextjs/server";
 
 const Home = async () => {
