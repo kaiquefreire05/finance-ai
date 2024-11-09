@@ -44,7 +44,7 @@ const SummaryCards = async ({
         />
         <SummaryCard
           icon={<TrendingDownIcon size={16} className="text-red-500" />}
-          title="Investido"
+          title="Despesas"
           amount={expensesTotal}
         />
       </div>
