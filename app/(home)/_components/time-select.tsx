@@ -9,7 +9,7 @@ import {
 } from "@/app/_components/ui/select";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const MONTHS_OPTIONS = [
+const MONTH_OPTIONS = [
   { value: "01", label: "January" },
   { value: "02", label: "February" },
   { value: "03", label: "March" },
@@ -31,7 +31,6 @@ const TimeSelect = () => {
   const handleMonthChange = (month: string) => {
     push(`/?month=${month}`);
   };
-
   return (
     <Select
       onValueChange={(value) => handleMonthChange(value)}
@@ -41,7 +40,7 @@ const TimeSelect = () => {
         <SelectValue placeholder="Mês" />
       </SelectTrigger>
       <SelectContent>
-        {MONTHS_OPTIONS.map((option) => (
+        {MONTH_OPTIONS.map((option) => (
           <SelectItem key={option.value} value={option.value}>
             {option.label}
           </SelectItem>
