@@ -6,6 +6,7 @@ import Navbar from "../_components/navbar";
 import { redirect } from "next/navigation";
 import { auth } from "@clerk/nextjs/server";
 import { ScrollArea } from "../_components/ui/scroll-area";
+import { canUserAddTransaction } from "../_data/can-user-add-transaction";
 
 const TransactionPage = async () => {
   const { userId } = await auth();
@@ -15,6 +16,7 @@ const TransactionPage = async () => {
   const transactions = await db.transaction.findMany({
     where: { userId },
   });
+  const userCanAddTransaction = await canUserAddTransaction();
   return (
     <>
       <Navbar />
@@ -22,7 +24,7 @@ const TransactionPage = async () => {
         {/*TITLE AND BUTTON*/}
         <div className="flex w-full items-center justify-between">
           <h1 className="text-2xl font-bold">Transações</h1>
-          <AddTransactionButton />
+          <AddTransactionButton userCanAddTransaction={userCanAddTransaction} />
         </div>
         <ScrollArea>
           <DataTable columns={transactionColumns} data={transactions} />
