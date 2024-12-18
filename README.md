@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Finance AI
 
-## Getting Started
+**Finance AI** is an application that integrates artificial intelligence into the financial sector, offering advanced tools for data analysis, trend prediction and automation of financial processes.
 
-First, run the development server:
+## Features
+
+- **Financial Data Analysis**: Interprets large volumes of financial data, generating valuable insights.
+- **Trend Forecasting**: Uses predictive models to anticipate market movements.
+- **Process Automation**: Automates routine financial tasks for greater efficiency and accuracy.
+
+## Technologies Used
+
+- **Next.js**: Framework for developing web interfaces.
+- **Tailwind CSS**: Responsive and customizable styling.
+- **Prisma**: ORM for database management.
+- **TypeScript**: Static typing for greater code security.
+- **OpenAI API**: Integration with advanced AI models.
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/kaiquefreire05/finance-ai.git
+```
+
+2. Navigate to the project directory:
+
+```bash
+cd finance-ai
+```
+
+3. Install the dependencies:
+
+```bash
+npm install
+```
+
+4. Set the environment variables:
+
+- Create a `.env` file in the root of the project based on `.env.example`.
+- Add your OpenAI API key in the `OPENAI_API_KEY` field.
+
+5. Run the database migrations:
+
+```bash
+npx prisma migrate dev
+```
+
+6. Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application will be available at [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Integration with the OpenAI API
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To use the AI ​​features, set up your API key:
 
-## Learn More
+1. Get your API key from the [OpenAI website](https://platform.openai.com/).
 
-To learn more about Next.js, take a look at the following resources:
+2. In the `.env` file, add:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+OPENAI_API_KEY=your_api_key_here
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Access the models in the application code:
 
-## Deploy on Vercel
+```javascript
+const response = await openai.Completion.create({
+model: 'text-davinci-003',
+prompt: 'Your question here',
+max_tokens: 100,
+});
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+console.log(response.choices[0].text);
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contribution
+
+Contributions are welcome! Follow the steps below:
+
+1. Fork the repository. 2. Create a branch for your feature:
+
+```bash
+git checkout -b feature/nova-feature
+```
+
+3. Commit your changes:
+
+```bash
+git commit -m "Add new feature"
+```
+
+4. Push your changes:
+
+```bash
+git push origin feature/nova-feature
+```
+
+5. Open a Pull Request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+Developed by [Kaique Freire dos Santos](https://github.com/kaiquefreire05).
